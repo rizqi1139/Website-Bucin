@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sebuah Surat Untukmu</title>
+    <meta name="description" content="Sebuah perjalanan kecil menuju sepucuk surat" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Dancing+Script:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Ambient background -->
+    <div class="bg-scene" aria-hidden="true">
+      <div class="bg-glow"></div>
+      <div class="bg-vignette"></div>
+      <div class="embers">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Journey indicator -->
+    <nav class="journey" aria-hidden="true">
+      <span class="journey-dot" data-step="welcome"></span>
+      <span class="journey-dot" data-step="intro"></span>
+      <span class="journey-dot" data-step="name"></span>
+      <span class="journey-dot" data-step="quiz"></span>
+      <span class="journey-dot" data-step="letter"></span>
+      <span class="journey-dot" data-step="climax"></span>
+      <span class="journey-dot" data-step="ending"></span>
+    </nav>
+
+    <button id="muteBtn" class="icon-btn" type="button" aria-label="Nyalakan atau matikan musik">
+      <span aria-hidden="true">&#9834;</span>
+    </button>
+
+    <main>
+      <!-- Loading -->
+      <section id="loading" class="page active" aria-live="polite">
+        <div class="seal-loader" aria-hidden="true"><span></span></div>
+        <h1 class="script">Menyiapkan Sesuatu yang Indah</h1>
+        <p class="eyebrow">Membuka surat…</p>
+      </section>
+
+      <!-- Welcome -->
+      <section id="welcome" class="page">
+        <article class="paper">
+          <p class="eyebrow">Sebuah undangan</p>
+          <h1 class="script">Selamat Datang</h1>
+          <p>
+            Halo... terima kasih sudah membuka halaman kecil ini. Tenang saja,
+            ini bukan situs biasa. Aku ingin mengajakmu menempuh sebuah
+            perjalanan singkat, sebelum sampai pada satu hal yang ingin
+            kusampaikan.
+          </p>
+          <button class="btn" data-next="intro">Mulai Perjalanan</button>
+        </article>
+      </section>
+
+      <!-- Intro -->
+      <section id="intro" class="page">
+        <article class="paper">
+          <img
+            src="assets/img/foto/Rizqi.jpg"
+            alt="Foto Rizqi Hidayat"
+            class="avatar"
+          />
+          <p class="eyebrow">Perkenalkan</p>
+          <h2>Rizqi Hidayat</h2>
+          <p>
+            Aku percaya setiap pertemuan tidak pernah terjadi begitu saja.
+            Mungkin semesta sedang menuliskan sebuah cerita — dan hari ini,
+            aku ingin membagikan sepotong cerita itu kepadamu.
+          </p>
+          <button class="btn" data-next="name">Lanjutkan</button>
+        </article>
+      </section>
+
+      <!-- Input Nama -->
+      <section id="name" class="page">
+        <article class="paper">
+          <p class="eyebrow">Sebelum melangkah lebih jauh</p>
+          <h2>Siapa Namamu?</h2>
+          <p>Boleh aku tahu, dengan siapa aku sedang bercerita?</p>
+          <form id="nameForm" novalidate>
+            <label class="sr-only" for="visitorName">Nama kamu</label>
+            <input
+              type="text"
+              id="visitorName"
+              placeholder="Masukkan nama kamu..."
+              autocomplete="given-name"
+            />
+            <p id="nameError" class="field-error" role="alert" hidden>
+              Isi dulu namamu ya
+            </p>
+            <button class="btn" id="saveName" type="submit">Lanjutkan</button>
+          </form>
+        </article>
+      </section>
+
+      <!-- Quiz -->
+      <section id="quiz" class="page">
+        <article class="paper">
+          <p class="eyebrow">Sebuah kuis kecil</p>
+          <h2>Mengenalmu Sedikit Lagi</h2>
+
+          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Kemajuan kuis">
+            <div id="progressBar"></div>
+          </div>
+
+          <h3 id="question"></h3>
+          <div id="answers"></div>
+        </article>
+      </section>
+
+      <!-- Analisis -->
+      <section id="analyze" class="page">
+        <article class="paper">
+          <div class="pulse-heart" aria-hidden="true">&#10084;</div>
+          <h2>Membaca Jawabanmu…</h2>
+          <p>Sebentar ya, aku sedang mencoba memahami jawaban-jawabanmu.</p>
+        </article>
+      </section>
+
+      <!-- Letter -->
+      <section id="letter" class="page">
+        <article class="paper letter">
+          <div class="wax-seal" aria-hidden="true">&#9993;</div>
+          <h2>Sebuah Surat</h2>
+          <p id="typingText" aria-live="polite"></p>
+          <button class="btn" id="openSecret">Buka Rahasia</button>
+        </article>
+      </section>
+
+      <!-- Climax -->
+      <section id="climax" class="page">
+        <article class="paper climax-card">
+          <h3 id="helloUser"></h3>
+          <div id="climaxLines" class="climax-lines" aria-live="polite"></div>
+          <h1 class="loveText script" id="loveText" hidden>"Sumpah Aku Suka Kamu."</h1>
+          <button class="btn" id="endingBtn" hidden>Lanjutkan</button>
+        </article>
+      </section>
+
+      <!-- Ending -->
+      <section id="ending" class="page">
+        <article class="paper">
+          <p class="eyebrow">Penutup</p>
+          <h1 class="script">Terima Kasih</h1>
+          <p>
+            Terima kasih sudah meluangkan waktu untuk mengikuti perjalanan
+            ini. Apa pun jawabanmu nanti, semoga hari-harimu selalu dipenuhi
+            kebahagiaan.
+          </p>
+          <button class="btn btn-ghost" id="restart">Mulai Lagi</button>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
